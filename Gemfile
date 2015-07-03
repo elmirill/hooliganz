@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'mail_form'
+gem 'simple_form'
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
