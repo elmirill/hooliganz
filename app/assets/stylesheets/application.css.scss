@@ -1,3 +1,19 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -137,6 +153,22 @@ h4 {
 	width: 100%;
 	padding: 15px 0px;
 }
+.wrapper {
+	width:100%;
+	height: 100%;
+	position: relative;
+	min-height:100%;
+	display: inline-block;
+}
+
+
+//Sidebar
+#sidebar {
+	height: 100%;
+	min-height:100%;
+	background-color:Aqua;
+}
+
 
 //Footer
 
@@ -158,14 +190,19 @@ h4 {
 		color: #efefef;
 	}
 	a {
-		color: #efefef; 
+		color: #efefef;
+		text-decoration: none;
 	}
+}
+.footer-icon{
+	width: 50px;
+	margin-right: 9px;
 }
 #contact-form .btn {
 	width: 100%;
 	background-color: #efefef;
+	border: 1px solid #efefef;
 	border-radius: 0px;
-	border: none;
 	color: #222;
 	font-size: 1.1em;
 	transition: linear 0.2s;
@@ -174,7 +211,6 @@ h4 {
 	&:hover {
 		background-color: #222;
 		color: #efefef;
-		border: 1px solid #efefef;
 	}
 }
 .footer-form{
@@ -188,7 +224,7 @@ h4 {
 	
 }
 #footer-email{
-	
+
 }
 #footer-message{
 	height: 120px;
@@ -198,9 +234,23 @@ h4 {
 		margin-top: 30px;
 	}
 	.footer{
-		height: 500px;
+		height: 545px;
 	}
 	body {
-		margin-bottom: 500px;
+		margin-bottom: 545px;
 	}
+}
+.relative{
+	position: relative;
+}
+#copy{
+	padding-left: 15px;
+}
+#copy-xs{
+	padding-top: 25px;
+	text-align: center;
+}
+.pull-down{
+	position: absolute;
+	bottom: 0;
 }
