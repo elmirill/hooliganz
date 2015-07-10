@@ -14,7 +14,7 @@
 		</button>
 
 		<ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-<!--			<li><%= link_to "О нас", about_path %></li>-->
+			<li class="<%= 'nav-current-page' if current_page?('/news') %>"><%= link_to "Новости", "/news" %></li>
 			<li class="<%= 'nav-current-page' if current_page?(training_path) %>"><%= link_to "Обучение", training_path %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/gallery') %>"><%= link_to "Галерея", "/gallery" %></li>
 			<li><%= link_to "Контакты", "#contacts" %></li>
