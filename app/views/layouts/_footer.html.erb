@@ -22,17 +22,31 @@
 			</div>
 			
 			<p id="copy" class="pull-down hidden-xs"><i class="glyphicon glyphicon-copyright-mark"></i> <%= Time.now.year %> Hooliganz</p>
-			<p id="login" class="pull-down hidden-xs col-sm-offset-4"><a href="#">Админка</a></p>
+			<p id="login" class="pull-down hidden-xs col-sm-offset-4">
+				<% if user_signed_in? %>
+					<%= current_user.email %><br><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', '/users/profile' %>
+				<% else %>
+					<%= link_to 'Админка', new_user_session_path %>
+				<% end %>
+			</p>
 			
 			<div id="contact-form" class="col-md-5 col-sm-4 col-xs-12">
-				<p><input type="text" id="footer-name" class="footer-form" placeholder="Имя"></p>
-				<p><input type="text" id="footer-email" class="footer-form" placeholder="Электропочта"></p>
-				<p><textarea id="footer-message" class="footer-form" placeholder="Сообщение" name="text"></textarea></p>
-				<p><button class="btn btn-primary">Отправить сообщение</button></p>
+				<p><input type="text" id="footer-name" class="form" placeholder="Имя"></p>
+				<p><input type="text" id="footer-email" class="form" placeholder="Электропочта"></p>
+				<p><textarea id="footer-message" placeholder="Сообщение" name="text"></textarea></p>
+				<p><button class="btn btn-primary disabled">Отправить сообщение</button></p>
 			</div>
 		</div>
 		
-		<p id="copy-xs" class="visible-xs"><i class="glyphicon glyphicon-copyright-mark"></i> <%= Time.now.year %> Hooliganz | <a href="#">Админка</a></p>
+		<p id="copy-xs" class="visible-xs">
+			<i class="glyphicon glyphicon-copyright-mark"></i>
+			<%= Time.now.year %> Hooliganz | 
+			<% if user_signed_in? %>
+				<%= current_user.email %> | <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', '/users/profile' %>
+			<% else %>
+				<%= link_to 'Админка', new_user_session_path %>
+			<% end %>
+		</p>
 		
 	</div>
 </div>

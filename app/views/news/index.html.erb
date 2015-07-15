@@ -4,11 +4,16 @@
 <% @news.each do |news| %>
 	<h1><%= news.title %></h1>
 	<p><%= news.body %></p>
-
+	
+<% if user_signed_in? && is_admin? %>
 	<!--        <td><%= link_to 'Show', news %></td>-->
-	<%= link_to 'Редактировать', edit_news_path(news) %>
-	<%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Уверены?' } %>
-	<br><br>
+		<%= link_to 'Редактировать', edit_news_path(news) %>
+		<%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Уверены?' } %>
+		<br>
+	<% end %>
+	<br>
 <% end %>
 
-<%= link_to 'Добавить новость', new_news_path %>
+<% if user_signed_in? && is_admin? %>
+	<%= link_to 'Добавить новость', new_news_path %>
+<% end %>
