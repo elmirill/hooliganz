@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, path_names: { edit: 'profile' }
+	devise_for :users, path_names: { edit: 'edit', sign_up: '' }
+	
   resources :news
 #	resources :galleries
 	resources :pictures

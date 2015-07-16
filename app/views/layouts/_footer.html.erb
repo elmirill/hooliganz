@@ -24,7 +24,7 @@
 			<p id="copy" class="pull-down hidden-xs"><i class="glyphicon glyphicon-copyright-mark"></i> <%= Time.now.year %> Hooliganz</p>
 			<p id="login" class="pull-down hidden-xs col-sm-offset-4">
 				<% if user_signed_in? %>
-					<%= current_user.email %><br><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', '/users/profile' %>
+					<%= current_user.email %><br><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', edit_user_registration_path %>
 				<% else %>
 					<%= link_to 'Админка', new_user_session_path %>
 				<% end %>
@@ -42,7 +42,7 @@
 			<i class="glyphicon glyphicon-copyright-mark"></i>
 			<%= Time.now.year %> Hooliganz | 
 			<% if user_signed_in? %>
-				<%= current_user.email %> | <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', '/users/profile' %>
+				<%= current_user.email %> | <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', edit_user_registration_path %>
 			<% else %>
 				<%= link_to 'Админка', new_user_session_path %>
 			<% end %>
