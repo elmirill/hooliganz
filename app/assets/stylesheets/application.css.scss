@@ -177,6 +177,16 @@ textarea {
 .full-width-img {
 	width: 100%;
 }
+.half-width-img {
+	width: calc(50% - 15px);
+	float: left;
+	&.left{
+		margin-right: 15px;
+	}
+	&.right{
+		margin-left: 15px;
+	}
+}
 .gallery {
 	margin-top: 5px;
 }
