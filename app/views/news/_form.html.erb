@@ -1,14 +1,16 @@
-<%= simple_form_for(@news) do |f| %>
-  <%= f.error_notification %>
+<% if user_signed_in? && is_admin? %>
+		<%= simple_form_for(@news) do |f| %>
+		<%= f.error_notification %>
 
-  <div class="form-inputs">
-		<%= f.label :title, 'Заголовок' %>
-		<%= f.text_field :title, class: "form" %>
-		<%= f.label :body, 'Текст' %>
-		<%= f.text_area :body, class: "form" %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Отправить" %>
-  </div>
-  <br>
+		<div class="form-inputs">
+			<%= f.label :title, 'Заголовок' %>
+			<%= f.text_field :title, class: "form" %>
+			<%= f.label :body, 'Текст' %>
+			<%= f.text_area :body, class: "form" %>
+		</div>
+		<div class="form-actions">
+			<%= f.button :submit, "Отправить" %>
+		</div>
+		<br>
+	<% end %>
 <% end %>

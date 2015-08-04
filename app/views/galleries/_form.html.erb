@@ -1,39 +1,41 @@
-<%= simple_form_for @gallery, html: { multipart: true } do |f| %>
-<% if @gallery.errors.any? %>
-    <div id="errors">
-      <p>
-				<%= @gallery.errors.count %>
-        prevented gallery from saving
-      </p>
-      <ul>
-				<% @gallery.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-   
-	<%= f.input :name, placeholder: 'Название', label: "Не менять!" %> <br>
-  <%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-50' %>
-    
-     
-		<h3>Фотографии</h3>
-		
-	<div class="photos">
-
-		<%= f.simple_fields_for :pictures do |pic| %>
-			<%= render 'picture_fields', f: pic %>
+<% if user_signed_in? && is_admin? %>
+	<%= simple_form_for @gallery, html: { multipart: true } do |f| %>
+	<% if @gallery.errors.any? %>
+			<div id="errors">
+				<p>
+					<%= @gallery.errors.count %>
+					prevented gallery from saving
+				</p>
+				<ul>
+					<% @gallery.errors.full_messages.each do |msg| %>
+						<li>
+							<%= msg %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
 		<% end %>
 
-		<%= link_to_add_association 'Добавить еще одну фотографию', f, :pictures,
-				class: "btn btn-default" %>
-			
-	</div>
-			
-	<br><br>
-	
-	<%= link_to "Назад", "/gallery", class: "btn btn-default" %>
-  <%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
+		<%= f.input :name, placeholder: 'Название', label: "Не менять!" %> <br>
+		<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-50' %>
+
+
+			<h3>Фотографии</h3>
+
+		<div class="photos">
+
+			<%= f.simple_fields_for :pictures do |pic| %>
+				<%= render 'picture_fields', f: pic %>
+			<% end %>
+
+			<%= link_to_add_association 'Добавить еще одну фотографию', f, :pictures,
+					class: "btn btn-default" %>
+
+		</div>
+
+		<br><br>
+
+		<%= link_to "Назад", "/gallery", class: "btn btn-default" %>
+		<%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
+	<% end %>
 <% end %>

@@ -3,7 +3,7 @@
 </div>
 
 <div class="gallery relative">
-	<% if user_signed_in? %>
+	<% if user_signed_in? && is_admin? %>
 		<%= link_to "Добавить фотографии", "gallery/edit",
 																					class: "btn btn-primary side-button margin" %>
 	<% end %>
@@ -15,7 +15,7 @@
 			<% end %>
 			
 			
-			<% if user_signed_in? %>
+			<% if user_signed_in? && is_admin? %>
 				<%= link_to pic, method: :delete, data: { confirm: "Уверены?" },
 																							class: "side-button corner-button" do %>
 				<i class="glyphicon glyphicon-remove"></i>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	
   resources :news
 	resources :pictures, only: [:destroy]
-	resources :galleries, only: [:show, :edit, :update, :new]
+	resources :galleries, only: [:show, :edit, :update, :new, :create]
 	
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
