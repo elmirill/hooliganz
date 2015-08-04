@@ -21,7 +21,7 @@ class GalleriesController < ApplicationController
 
   def edit
 		@gallery = Gallery.where(name: 'main').first
-		3.times { @gallery.pictures.build }
+#		3.times { @gallery.pictures.build }
   end
 
 	def update
@@ -38,7 +38,8 @@ class GalleriesController < ApplicationController
 	private
 	
 	def gallery_params
-		params.require(:gallery).permit(:name, :description, :created_at, :updated_at, pictures_attributes: :image)
+		params.require(:gallery).permit(:name, :description,
+			pictures_attributes: [:id, :image, :caption, :image_file_name, :image_file_size, :image_content_type, :image_updated_at, :_destroy])
   end
 	
 end

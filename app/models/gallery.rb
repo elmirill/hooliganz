@@ -1,7 +1,8 @@
 class Gallery < ActiveRecord::Base
-	validates :name, uniqueness: true	
+	belongs_to :user
 	has_many :pictures, dependent: :destroy
 	
-	accepts_nested_attributes_for :pictures, reject_if: lambda { |t| t['picture'].nil? }
+	validates :name, uniqueness: true
+	accepts_nested_attributes_for :pictures, reject_if: :all_blank, allow_destroy: true
 	
 end
