@@ -1,19 +1,19 @@
 class GalleriesController < ApplicationController
+	before_action :authenticate_user!, except: [:show]
 	
-#	def new
-#		@gallery = Gallery.new
-#		3.times { @gallery.pictures.build }
-#	end
+	def new
+		@gallery = Gallery.new
+	end
 	
-#	def create
-#		@gallery = Gallery.new(gallery_params)
-#		if @gallery.save
-#			flash[:notice] = "Галерея создана"
-#			redirect_to "/gallery"
-#		else
-#			render action: 'new'
-#		end
-#	end
+	def create
+		@gallery = Gallery.new(gallery_params)
+		if @gallery.save
+			flash[:notice] = "Галерея создана"
+			redirect_to "/gallery"
+		else
+			render action: 'new'
+		end
+	end
 	
   def show
 		@gallery = Gallery.where(name: 'main').first
@@ -21,7 +21,6 @@ class GalleriesController < ApplicationController
 
   def edit
 		@gallery = Gallery.where(name: 'main').first
-#		3.times { @gallery.pictures.build }
   end
 
 	def update
@@ -39,7 +38,7 @@ class GalleriesController < ApplicationController
 	
 	def gallery_params
 		params.require(:gallery).permit(:name, :description,
-			pictures_attributes: [:id, :image, :caption, :image_file_name, :image_file_size, :image_content_type, :image_updated_at, :_destroy])
+			pictures_attributes: [:id, :image, :caption, :_destroy])
   end
 	
 end

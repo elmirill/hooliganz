@@ -33,6 +33,20 @@ p {
 a {
 	text-decoration: underline;
 	color: #222;
+	transition: linear 0.2s;
+	-webkit-transition: linear 0.2s;
+	-moz-transition: linear 0.2s;
+	&:hover {
+		color: #222;
+	}
+}
+a>.glyphicon{
+	transition: linear 0.2s;
+	-webkit-transition: linear 0.2s;
+	-moz-transition: linear 0.2s;
+}
+a>.glyphicon:hover{
+	color: #888;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'PT Serif', serif;
@@ -53,19 +67,38 @@ input {
 	margin-bottom: 5px;
 	border: 1px solid #ccc;
 }
+.image-submit{
+	@extend .form;
+	width: calc(100% - 90px);
+}
 textarea { 
 	@extend .form;
 	height: 150px;
+	&.textarea-50 {
+		height: 50px;
+	}
+}
+.relative {
+	position: relative;
 }
 .btn{
 	transition: linear 0.2s;
 	-webkit-transition: linear 0.2s;
 	-moz-transition: linear 0.2s;
 	border: none;
+	border-radius: 0px;
+	text-decoration: none;
+	&:hover {
+		background-color: #e6e6e6;
+		color: #333;
+	}
 }
 .btn-default {
-	background-color: #555;
+	background-color: #999;
 	color: #efefef;
+}
+.btn-primary {
+	background-color: #555;
 }
 .alert {
 	border-radius: 0px;
@@ -188,7 +221,8 @@ textarea {
 	}
 }
 .gallery {
-	margin-top: 5px;
+	margin-top: 15px;
+	padding-top: 32px;
 }
 .gallery-thumb {
 	width: 100%;
@@ -203,6 +237,29 @@ textarea {
 }
 .unit{
 	margin-bottom: 30px;
+}
+.well{
+	background-color: #efefef;
+	border-radius: 0px;
+	box-shadow: none;
+	border: 0px;
+} 
+.page-standout {
+	margin: 15px 15px 0px 15px;
+}
+.side-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	&.margin {
+		margin-right: 15px; 
+	}
+}
+.corner-button {
+	font-size: 32px;
+}
+.form-group {
+	margin: 0px;
 }
 
 //Sidebar

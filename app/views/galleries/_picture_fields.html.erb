@@ -1,0 +1,5 @@
+<div class="nested-fields relative">
+	<%= f.input :image, input_html: { class: "form-input form-control image-submit" }, label: false, placeholder: "Или перетащи фотографии" %>
+	<%= f.text_field :caption, class: "form-input form-control image-submit", placeholder: "Описание" %>
+	<%= link_to_remove_association "Удалить", f, class: "btn btn-default side-button" %>
+</div>
