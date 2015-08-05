@@ -1,0 +1,1 @@
+Paperclip::Attachment.default_options[:path] = '/hooliganz/:class/:attachment/:style/:filename'
