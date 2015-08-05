@@ -3,10 +3,11 @@ class Picture < ActiveRecord::Base
 	
 	has_attached_file :image,
 						styles: {
-							thumb:
+							thumb: {
 								geometry: "350x350#",
 								quality: "70",
 								format: "JPG"
+								}
 							},
 						preserve_files: true
 	validates_attachment :image, 
