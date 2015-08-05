@@ -77,4 +77,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 	config.action_mailer.default_url_options = { host: 'limitless-scrubland-7039.herokuapp.com' }
+	
+	config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+		:bucket => ENV['purple-waves'],
+    :access_key_id => ENV['AKIAJO35WLNLPYEYYNGQ'],
+    :secret_access_key => ENV['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']
+  }
+}
 end
