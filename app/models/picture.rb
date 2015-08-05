@@ -5,7 +5,12 @@ class Picture < ActiveRecord::Base
 						styles: {
 							thumb: {
 								geometry: "350x350#",
-								quality: "70",
+								quality: "60",
+								format: "JPG"
+								},
+							original: {
+								geometry: "1500x1500>",
+								quality: "60",
 								format: "JPG"
 								}
 							},
