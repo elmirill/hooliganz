@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 	resources :galleries, only: [:show, :edit, :update, :new, :create]
 	
   root 'static_pages#home'
+	
   match '/about', to: 'static_pages#about', via: 'get'
   match '/training', to: 'static_pages#training', via: 'get'
-	
 	match '/gallery', to: 'galleries#show', via: 'get'
 	match '/gallery/edit', to: 'galleries#edit', via: 'get'
 	match '/gallery/new', to: 'galleries#new', via: 'get'
+	
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
