@@ -38,7 +38,7 @@ class GalleriesController < ApplicationController
 	
 	def gallery_params
 		params.require(:gallery).permit(:name, :description,
-			pictures_attributes: [:id, :image, :caption, :_destroy])
+			pictures_attributes: [:id, :image, :caption, :alt, :_destroy])
   end
 	
 end

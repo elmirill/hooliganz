@@ -17,10 +17,13 @@
 		<% end %>
 
 <!--		<%= f.input :name, placeholder: 'Название', label: "Не менять!" %> <br>-->
-		<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-50' %>
+		<div class="col-xs-12">
+			<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-50' %>
+		</div>
 
-
+			<div class="clearfix"></div>
 			<h3>Фотографии</h3>
+			<br>
 
 		<div class="photos">
 
@@ -28,14 +31,18 @@
 				<%= render 'picture_fields', f: pic %>
 			<% end %>
 
-			<%= link_to_add_association 'Добавить еще одну фотографию', f, :pictures,
-					class: "btn btn-default" %>
+			<%= link_to_add_association 'Добавить фотографию', f, :pictures,
+class: "admin-add-photo btn btn-default col-md-3 col-sm-4 col-xs-6" %>
 
 		</div>
+		
+		<div class="clearfix"></div>
+		<br>
 
-		<br><br>
-
-		<%= link_to "Назад", "/gallery", class: "btn btn-default" %>
-		<%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
+		<div class="col-xs-12 mbottom20">
+			<%= link_to "Назад", "/gallery", class: "btn btn-default" %>
+			<%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
+		</div>
+		
 	<% end %>
 <% end %>
