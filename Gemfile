@@ -20,6 +20,7 @@ gem 'cocoon', '~> 1.2.6'
 gem 'aws-sdk', '< 2.0'
 gem 'pg'
 gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-bundler', '~> 1.1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
