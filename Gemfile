@@ -18,6 +18,8 @@ gem 'devise', '~> 3.5.1'
 gem 'rails-i18n', '~> 4.0.4'
 gem 'cocoon', '~> 1.2.6'
 gem 'aws-sdk', '< 2.0'
+gem 'pg'
+gem 'capistrano', '~> 3.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +43,6 @@ group :doc do
 end
 
 group :production do
-	gem 'pg'
+	gem 'unicorn'
 	gem 'rails_12factor'
 end
