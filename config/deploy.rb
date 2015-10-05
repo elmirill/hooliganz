@@ -106,3 +106,8 @@ namespace :deploy do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 end
+
+# Setting envvironment variables
+set :default_environment, {
+	DEVISE_SECRET_KEY: 'add99a7e037e4288582fbbb82ce292d8c59364b9e28dcd2210af37367b378a3608223963746d50254a52a0505d911944a9e910a640e615b341962841b5c86894'
+}
