@@ -78,12 +78,21 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 	config.action_mailer.default_url_options = { host: 'limitless-scrubland-7039.herokuapp.com' }
 	
+#	config.paperclip_defaults = {
+#		:storage => :s3,
+#		:s3_credentials => {
+#			:bucket => ENV['S3_BUCKET_NAME'],
+#			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+#			:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+#		}
+#	}
+	
 	config.paperclip_defaults = {
 		:storage => :s3,
 		:s3_credentials => {
-			:bucket => ENV['S3_BUCKET_NAME'],
-			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-			:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+			:bucket => 'purple-waves',
+			:access_key_id => 'AKIAJO35WLNLPYEYYNGQ',
+			:secret_access_key => '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'
 		}
 	}
 end
