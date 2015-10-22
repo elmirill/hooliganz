@@ -26,7 +26,7 @@
 				<% if user_signed_in? %>
 					<%= current_user.email %><br><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', edit_user_registration_path %>
 				<% else %>
-					<%= link_to 'Админка', new_user_session_path %>
+					<%= link_to 'Войти в админку', new_user_session_path %>
 				<% end %>
 			</p>
 			
