@@ -25,6 +25,8 @@
 			<p id="login" class="pull-down hidden-xs col-sm-offset-4">
 				<% if user_signed_in? %>
 					<%= current_user.email %><br><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', edit_user_registration_path %>
+					<br><br>
+					<%= link_to "Настройки сайта", "/edit_settings" %>
 				<% else %>
 					<%= link_to 'Войти в админку', new_user_session_path %>
 				<% end %>
@@ -38,6 +40,8 @@
 			<%= Time.now.year %> Hooliganz | 
 			<% if user_signed_in? %>
 				<%= current_user.email %> | <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %> | <%= link_to 'Редактировать', edit_user_registration_path %>
+				<br>
+				<%= link_to "Настройки сайта", "/edit_settings" %>
 			<% else %>
 				<%= link_to 'Войти в админку', new_user_session_path %>
 			<% end %>

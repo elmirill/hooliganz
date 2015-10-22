@@ -50,6 +50,6 @@ class CoreSettingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def core_setting_params
-      params.require(:core_setting).permit(:main_phone, :main_email, :address, :site_description, :vk_link, :instagram_link, :youtube_link)
+      params.require(:core_setting).permit(:main_phone, :main_email, :address, :site_description, :vk_link, :vk_personal_link, :instagram_link, :youtube_link)
     end
 end
