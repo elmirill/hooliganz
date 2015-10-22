@@ -30,12 +30,7 @@
 				<% end %>
 			</p>
 			
-			<div id="contact-form" class="col-md-5 col-sm-4 col-xs-12">
-				<p><input type="text" id="footer-name" class="form" placeholder="Имя"></p>
-				<p><input type="text" id="footer-email" class="form" placeholder="Электропочта"></p>
-				<p><textarea id="footer-message" placeholder="Сообщение" name="text"></textarea></p>
-				<p><button class="btn btn-primary disabled">Отправить сообщение</button></p>
-			</div>
+			<%= render "contact_form_mailer/contact_form" %>
 		</div>
 		
 		<p id="copy-xs" class="visible-xs">

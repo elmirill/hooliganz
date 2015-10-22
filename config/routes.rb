@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
 	devise_for :users, path_names: { edit: 'edit', sign_up: '' }
 	
   resources :news
 	resources :pictures, only: [:destroy]
 	resources :galleries, only: [:show, :edit, :update, :new, :create]
+	resources :core_settings, only: [:new, :create, :edit, :update]
 	
   root 'static_pages#home'
 	
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
 	match '/gallery', to: 'galleries#show', via: 'get'
 	match '/gallery/edit', to: 'galleries#edit', via: 'get'
 	match '/gallery/new', to: 'galleries#new', via: 'get'
+	match '/send_form', to: 'contact_form_mailer#send_form', via: 'post'
 	
 
   # The priority is based upon order of creation: first created -> highest priority.

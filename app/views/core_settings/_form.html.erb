@@ -1,0 +1,20 @@
+<br>
+ <%= simple_form_for(@core_setting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs col-xs-12 mbottom20">
+		<%= f.input :main_phone, label: false, placeholder: "Номер телефона" %><br>
+    <%= f.input :main_email, label: false, placeholder: "Электропочта" %><br>
+    <%= f.input :address, label: false, placeholder: "Адрес" %><br>
+    <%= f.input :site_description, label: false, placeholder: "Описание сайта" %><br>
+    <%= f.input :vk_link, label: false, placeholder: "Ссылка на ВКонтакте" %><br>
+		<%= f.input :instagram_link, label: false, placeholder: "Ссылка на Instagram" %><br>
+    <%= f.input :youtube_link, label: false, placeholder: "Ссылка на YouTube" %>
+  </div>
+ 
+	<div class="form-actions col-xs-12 mbottom20">
+		<%= link_to "Назад", root_path, class: "btn btn-default" %>
+		<%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
+	</div> 
+
+<% end %>

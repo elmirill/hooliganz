@@ -1,0 +1,9 @@
+<div id="contact-form" class="col-md-5 col-sm-4 col-xs-12">
+	<%= form_tag(send_form_path) do %>
+		<%= text_field_tag 'form_name', nil, required: true, class: "form footer-name", placeholder: "Имя" %>
+		<%= text_field_tag 'form_contact', nil, required: true, class: "form footer-contact", placeholder: "Контактная информация" %>
+		<%= text_area_tag 'form_message', nil, class: "form footer-message", placeholder: "Сообщение" %>
+		<%= text_field_tag 'form_nickname', nil, class: "nickname", placeholder: "Оставьте поле пустым" %>
+		<%= submit_tag 'Отправить сообщение', class: "btn btn-primary" %>
+	<% end %>
+</div>
