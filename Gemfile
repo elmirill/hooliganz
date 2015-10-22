@@ -20,6 +20,9 @@ gem 'cocoon', '~> 1.2.6'
 gem 'aws-sdk', '< 2.0'
 gem 'pg'
 gem 'capistrano', github: 'capistrano/capistrano', ref: '96a16'
+gem 'jquery-smooth-scroll-rails', '~> 0.0.5'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'capistrano-unicorn', '~> 0.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

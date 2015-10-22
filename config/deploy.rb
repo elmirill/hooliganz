@@ -12,15 +12,35 @@
 # закомментируйте эту строку.
 require 'bundler/capistrano'
 
+## Capistrano-unicorn
+
+require 'capistrano-unicorn'
+
 ## Чтобы не хранить database.yml в системе контроля версий, поместите
 ## database.yml в shared-каталог проекта на сервере и раскомментируйте
 ## следующие строки.
 
- after "deploy:update_code", :copy_database_config
- task :copy_database_config, roles => :app do
-   db_config = "#{shared_path}/database.yml"
-   run "cp #{db_config} #{release_path}/config/database.yml"
- end
+# after "deploy:update_code", :copy_database_config
+# task :copy_database_config, roles => :app do
+#   db_config = "#{shared_path}/database.yml"
+#   run "cp #{db_config} #{release_path}/config/database.yml"
+# end
+
+## Figaro YAML file:
+
+after "deploy:update_code", :copy_figaro_env
+task :copy_figaro_env, roles => :app do
+ figaro_env = "#{shared_path}/application.yml"
+ run "cp #{figaro_env} #{release_path}/config/application.yml"
+end
+
+## Migrate DB after deploy:
+
+after "deploy", "deploy:migrate"
+
+## Restart unicorn after deploy
+
+after 'deploy:restart', 'unicorn:restart'
 
 # В rails 3 по умолчанию включена функция assets pipelining,
 # которая позволяет значительно уменьшить размер статических
@@ -106,8 +126,3 @@ namespace :deploy do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 end
-
-# Setting envvironment variables
-set :default_environment, {
-	DEVISE_SECRET_KEY: 'add99a7e037e4288582fbbb82ce292d8c59364b9e28dcd2210af37367b378a3608223963746d50254a52a0505d911944a9e910a640e615b341962841b5c86894'
-}

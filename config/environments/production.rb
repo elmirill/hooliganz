@@ -76,23 +76,28 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-	config.action_mailer.default_url_options = { host: 'limitless-scrubland-7039.herokuapp.com' }
+
+	# Mailer config
+	config.action_mailer.default_url_options = { host: ENV["mailer_host"] }
+	config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	address: ENV["mailer_address"],
+	port: ENV["mailer_port"],
+	domain: ENV["mailer_domain"],
+	authentication: 'plain',
+	enable_starttls_auto: true,
+	user_name: ENV["mailer_user"],
+	password: ENV["mailer_pass"]
+	}
 	
-#	config.paperclip_defaults = {
-#		:storage => :s3,
-#		:s3_credentials => {
-#			:bucket => ENV['S3_BUCKET_NAME'],
-#			:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-#			:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-#		}
-#	}
-	
+	# Paperclip config
 	config.paperclip_defaults = {
 		:storage => :s3,
+		:bucket => ENV["s3_bucket_name"],
 		:s3_credentials => {
-			:bucket => 'purple-waves',
-			:access_key_id => 'AKIAJO35WLNLPYEYYNGQ',
-			:secret_access_key => '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'
+			:access_key_id => ENV["aws_access_key_id"],
+			:secret_access_key => ENV["aws_secret_access_key"]
 		}
 	}
 end
