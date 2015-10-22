@@ -24,7 +24,7 @@ test:
 
 production:
  <<: *default
- host: ENV["database_host"]
- database: ENV["database_name"]
- username: ENV["database_user"]
- password: ENV["database_pass"]
+ host: <%= ENV["database_host"] %>
+ database: <%= ENV["database_name"] %>
+ username: <%= ENV["database_user"] %>
+ password: <%= ENV["database_pass"] %>
