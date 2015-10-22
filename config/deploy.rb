@@ -34,10 +34,6 @@ task :copy_figaro_env, roles => :app do
  run "cp #{figaro_env} #{release_path}/config/application.yml"
 end
 
-## Migrate DB after deploy:
-
-after "deploy", "deploy:migrate"
-
 ## Restart unicorn after deploy
 
 after 'deploy:restart', 'unicorn:restart'

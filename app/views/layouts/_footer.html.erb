@@ -3,20 +3,20 @@
 		<div class="row relative">
 			<div class="col-sm-4 col-xs-6">
 				<h3 id="contacts">Контакты</h3>
-				<p><i class="glyphicon glyphicon-map-marker"></i> Новосибирск, Россия</p>
-				<p><i class="glyphicon glyphicon-phone"></i> +7 913 381 1213</p>
-				<p><i class="glyphicon glyphicon-globe"></i> vk.com/shmelevanton</p>
-				<p><i class="glyphicon glyphicon-envelope"></i> hooliganz-school@mail.ru</p>
+				<p><i class="glyphicon glyphicon-map-marker"></i> <%= @core_setting.address %></p>
+				<p><i class="glyphicon glyphicon-phone"></i> <%= @core_setting.main_phone %></p>
+				<p><i class="glyphicon glyphicon-globe"></i> <%= @core_setting.vk_personal_link %></p>
+				<p><i class="glyphicon glyphicon-envelope"></i> <%= @core_setting.main_email %></p>
 			</div>
 			<div id="social" class="col-md-3 col-sm-4 col-xs-6">
 				<h3>Мы в соц. сетях</h3>				
-				<%= link_to "https://vk.com/barbering", target: "_blank" do %>
+				<%= link_to @core_setting.vk_link, target: "_blank" do %>
 					<%= image_tag "icon-vk.jpg", class: "footer-icon" %>
 				<% end %>
-				<%= link_to "https://instagram.com/hooliganzschool/", target: "_blank" do %>
+				<%= link_to @core_setting.instagram_link, target: "_blank" do %>
 					<%= image_tag "icon-instagram.jpg", class: "footer-icon" %>
 				<% end %>
-				<%= link_to "https://www.youtube.com/c/HooliganzSu", target: "_blank" do %>
+				<%= link_to @core_setting.youtube_link, target: "_blank" do %>
 					<%= image_tag "icon-yt.jpg", class: "footer-icon" %>
 				<% end %>
 			</div>

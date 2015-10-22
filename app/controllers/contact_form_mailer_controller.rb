@@ -5,7 +5,7 @@ class ContactFormMailerController < ApplicationController
 		contact = params[:form_contact]
 		message = params[:form_message]
 		captcha = params[:form_nickname]
-		to = "ant.khay@gmail.com"
+		to = @core_setting.main_email
 		if captcha.empty?
 			if ContactFormMailer.email_form(name, contact, message, to).deliver
 				redirect_to :back, notice: "Сообщение отправлено."
