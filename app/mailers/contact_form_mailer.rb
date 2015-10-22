@@ -5,7 +5,7 @@ class ContactFormMailer < ApplicationMailer
 		@contact = contact
 		@message = message
 		@to = to
-		mail(from: "#{name} <hooliganz.site@gmail.com>", to: @to, subject: "Сообщение с сайта hooliganz.su")
+		mail(from: "#{@name} <hooliganz.site@gmail.com>", to: @to, subject: "Сообщение с сайта hooliganz.su")
 	end
 	
 end
