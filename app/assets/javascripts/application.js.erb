@@ -12,8 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require cocoon
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require jquery-smooth-scroll
+//= require magnific-popup
 //= require_tree .
+
+
+// Initialize Magnific Popup
+$(document).ready(function() {
+	$('.image-popup-fit').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		mainClass: 'mfp-fade',
+		removalDelay: 300,
+		image: {
+			verticalFit: true
+		}
+	});
+});

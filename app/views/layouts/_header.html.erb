@@ -1,4 +1,4 @@
-<div class="navbar navbar-static-top">
+<div class="navbar navbar-static-top" >
 	<div id="header-stripe"></div>
 	<div class="container" role="navigation">
 		
@@ -16,7 +16,7 @@
 		<ul class="nav navbar-nav navbar-right collapse navbar-collapse">
 			<li class="<%= 'nav-current-page' if current_page?('/news') %>"><%= link_to "Новости", "/news" %></li>
 			<li class="<%= 'nav-current-page' if current_page?(training_path) %>"><%= link_to "Обучение", training_path %></li>
-			<li class="<%= 'nav-current-page' if current_page?('/gallery') %>"><%= link_to "Галерея", "/gallery" %></li>
+			<li class="<%= 'nav-current-page' if current_page?('/gallery') %>" data-no-turbolink ><%= link_to "Галерея", "/gallery" %></li>
 			<li><%= link_to "Контакты", "#contacts", class: "scroll" %></li>
 		</ul>
 		
