@@ -19,6 +19,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+	margin: 0;
+	outline: none;
+}
 html {
 	position: relative;
 	min-height: 100%;
@@ -49,6 +53,13 @@ a>.glyphicon{
 }
 a>.glyphicon:hover{
 	color: #888;
+}
+a, a img {
+	outline: none;
+	border: none;
+	&:focus {
+		outline: none;
+	}
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'PT Serif', serif;
