@@ -28,7 +28,10 @@ $(document).ready(function() {
 		mainClass: 'mfp-fade',
 		removalDelay: 300,
 		image: {
-			verticalFit: true
+			verticalFit: true,
+			titleSrc: function(item) {
+				return item.el.attr('title');
+			}
 		},
 		gallery: {
 			enabled: true, // set to true to enable gallery
