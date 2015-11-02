@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 	match '/gallery/edit', to: 'galleries#edit', via: 'get'
 	match '/gallery/new', to: 'galleries#new', via: 'get'
 	match '/send_form', to: 'contact_form_mailer#send_form', via: 'post'
-	get '/edit_settings', to: 'core_settings#edit', id: 1
+	match '/edit_settings', to: 'core_settings#edit', via: 'get', id: 1
 
 end
