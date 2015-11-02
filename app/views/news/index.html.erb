@@ -2,8 +2,7 @@
 	<h1><%= news.title %></h1>
 	<p><%= news.body %></p>
 	
-<% if user_signed_in? && is_admin? %>
-	<!--        <td><%= link_to 'Show', news %></td>-->
+	<% if user_signed_in? && is_admin? %>
 		<%= link_to 'Редактировать', edit_news_path(news) %>
 		<%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Уверены?' } %>
 		<br>

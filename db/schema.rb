@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022203554) do
+ActiveRecord::Schema.define(version: 20151102063127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,26 @@ ActiveRecord::Schema.define(version: 20151022203554) do
 
   add_index "pictures", ["gallery_id"], name: "index_pictures_on_gallery_id", using: :btree
 
+  create_table "training_pictures", force: :cascade do |t|
+    t.string   "caption"
+    t.string   "alt"
+    t.integer  "training_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "training_pictures", ["training_id"], name: "index_training_pictures_on_training_id", using: :btree
+
+  create_table "trainings", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -76,4 +96,5 @@ ActiveRecord::Schema.define(version: 20151022203554) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "pictures", "galleries"
+  add_foreign_key "training_pictures", "trainings"
 end

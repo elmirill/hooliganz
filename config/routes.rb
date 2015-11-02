@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resources :news
 	resources :pictures, only: [:destroy]
 	resources :galleries, only: [:show, :edit, :update, :new, :create]
+	resources :trainings
 	resources :core_settings, only: [:new, :create, :edit, :update]
 	
   root 'static_pages#home'
 	
-  match '/about', to: 'static_pages#about', via: 'get'
-  match '/training', to: 'static_pages#training', via: 'get'
+	match '/training', to: 'trainings#show', via: 'get', id: 1
 	match '/gallery', to: 'galleries#show', via: 'get'
 	match '/gallery/edit', to: 'galleries#edit', via: 'get'
 	match '/gallery/new', to: 'galleries#new', via: 'get'

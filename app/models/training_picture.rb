@@ -1,10 +1,10 @@
-class Picture < ActiveRecord::Base
-  belongs_to :gallery
+class TrainingPicture < ActiveRecord::Base
+  belongs_to :training
 	
 	has_attached_file :image,
 						styles: {
 							thumb: {
-								geometry: "350x350#",
+								geometry: "690x365#",
 								quality: "60",
 								format: "JPG"
 								},

@@ -1,0 +1,11 @@
+<div class="nested-fields col-sm-6 admin-add-training-pictures">
+	<%= f.input :image, label: false,
+							input_html: { class: "image-submit form-input form-control" } %>
+	<%= link_to_remove_association "Удалить", f,
+														class: "btn btn-default side-button margin" %>
+	<%= image_tag f.object.image.url(:thumb) if f.object.image.present? %>
+	<%= f.input :caption, label: false, placeholder: "Описание",
+							input_html: { class: "form form-input form-control" } %>
+	<%= f.input :alt, label: false, placeholder: "Alt",
+							input_html: { class: "form form-input form-control" } %>
+</div>

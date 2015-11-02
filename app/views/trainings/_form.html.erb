@@ -1,0 +1,23 @@
+<%= simple_form_for(@training) do |f| %>
+  <%= f.error_notification %>
+ 	<br>
+
+  <div class="form-inputs">
+		<%= f.cktext_area :content, ckeditor: { language: 'ru', height: '500' } %>
+		<div class="clearfix"></div><br><br>
+		
+		<%= f.simple_fields_for :training_pictures do |tp| %>
+			<%= render 'training_picture_fields', f: tp %>
+		<% end %>
+		
+		<div class="links col-sm-6 admin-add-training-pictures">
+				<%= link_to_add_association 'Добавить фото', f, :training_pictures,
+																														class: 'btn btn-default' %>
+		</div>
+  </div>
+  <div class="clearfix"></div><br>
+
+  <div class="form-actions">
+		<%= f.button :submit, "Обновить", class: "btn btn-primary" %>
+  </div>
+<% end %>
