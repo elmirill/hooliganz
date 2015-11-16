@@ -1,5 +1,6 @@
 class GalleriesController < ApplicationController
 	before_action :authenticate_user!, except: [:show]
+	before_action :set_gallery, only: [:show, :edit]
 	
 #	def new
 #		@gallery = Gallery.new
@@ -16,11 +17,10 @@ class GalleriesController < ApplicationController
 #	end
 	
   def show
-		@gallery = Gallery.where(name: 'main').first
+		@pictures = @gallery.pictures.order("created_at DESC")
   end
 
   def edit
-		@gallery = Gallery.where(name: 'main').first
   end
 
 	def update
@@ -35,6 +35,10 @@ class GalleriesController < ApplicationController
 	
 	
 	private
+	
+	def set_gallery
+		@gallery = Gallery.where(name: 'main').first
+	end
 	
 	def gallery_params
 		params.require(:gallery).permit(:name, :description,

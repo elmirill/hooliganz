@@ -1,6 +1,6 @@
 <% if user_signed_in? && is_admin? %>
 	<%= simple_form_for @gallery, html: { multipart: true } do |f| %>
-	<% if @gallery.errors.any? %>
+		<% if @gallery.errors.any? %>
 			<div id="errors">
 				<p>
 					<%= @gallery.errors.count %>
@@ -17,22 +17,34 @@
 		<% end %>
 
 		<div class="col-xs-12">
-			<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-50' %>
+			<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-80' %>
 		</div>
 
-			<div class="clearfix"></div>
-			<h3>Фотографии</h3>
-			<br>
+		<div class="clearfix"></div>
+
+		<h3 class="admin-add-photo-heading">
+			Фотографии
+			<%= link_to_add_association f, :pictures,
+																			class: "admin-add-photo",
+																			"data-association-insertion-method" => "prepend",
+																			"data-association-insertion-node" => ".photos" do %>
+				добавить
+			<% end %>
+			<div class="actions">
+				<%= button_tag(type: 'submit', class: "admin-icon-submit") do %>
+					<i class="glyphicon glyphicon-ok"></i> 
+				<% end %>
+				<%= link_to @gallery, class: "admin-icon-return" do %>
+					<i class="glyphicon glyphicon-arrow-left"></i>
+				<% end %>
+			</div>
+		</h3>
+		<br>
 
 		<div class="photos">
-
-			<%= f.simple_fields_for :pictures do |pic| %>
+			<%= f.simple_fields_for :pictures, f.object.pictures.order("created_at DESC") do |pic| %>
 				<%= render 'picture_fields', f: pic %>
 			<% end %>
-
-			<%= link_to_add_association 'Добавить фотографию', f, :pictures,
-class: "admin-add-photo btn btn-default col-md-3 col-sm-4 col-xs-6" %>
-
 		</div>
 		
 		<div class="clearfix"></div>
