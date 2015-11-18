@@ -42,7 +42,7 @@
 		<br>
 
 		<div id="photos-sortable" class="photos">
-			<%= f.simple_fields_for :pictures, f.object.pictures.order("created_at DESC") do |pic| %>
+			<%= f.simple_fields_for :pictures, f.object.pictures.order("display_order ASC, created_at DESC") do |pic| %>
 				<%= render 'picture_fields', f: pic %>
 			<% end %>
 		</div>
