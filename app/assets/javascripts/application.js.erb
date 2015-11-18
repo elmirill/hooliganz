@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require cocoon
 //= require turbolinks
@@ -48,4 +50,10 @@ $(document).ready(function() {
 // Initialize Smooth Scroll
 $(document).ready(function() {
 	$('a.scroll').smoothScroll();
+});
+
+$(document).ready(function() {
+	$('#photos-sortable').sortable({items: '.admin-add-photos', update: function() {
+		$('#photos-order').val($('#photos-sortable').sortable('serialize'));
+	}});
 });

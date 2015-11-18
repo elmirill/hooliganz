@@ -1,4 +1,4 @@
-<div class="admin-add-photos nested-fields relative col-md-3 col-sm-4 col-xs-6">
+<div id="galleryphoto_<%= f.object.id %>" class="admin-add-photos nested-fields relative col-md-3 col-sm-4 col-xs-6">
 	<%= f.input :image, input_html: { class: "form-input form-control image-submit" }, label: false %>
 	<%= image_tag f.object.image.url(:thumb) %>
 	<%= f.text_field :caption, class: "form-input form-control form", placeholder: "Описание" %>

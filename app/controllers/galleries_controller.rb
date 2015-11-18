@@ -17,7 +17,7 @@ class GalleriesController < ApplicationController
 #	end
 	
   def show
-		@pictures = @gallery.pictures.order("created_at DESC")
+		@pictures = @gallery.pictures.order("display_order ASC, created_at DESC")
   end
 
   def edit
@@ -25,7 +25,8 @@ class GalleriesController < ApplicationController
 
 	def update
 		@gallery = Gallery.find(params[:id])
-		if @gallery.update_attributes(gallery_params)
+		order = Rack::Utils.parse_nested_query(params[:galleryphoto]).values
+		if @gallery.update_attributes(gallery_params) && Picture.order(order)
 			flash[:notice] = "Галерея обновлена"
 			redirect_to "/gallery"
 		else

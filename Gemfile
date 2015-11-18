@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks', '~> 0.2.1'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt-ruby'
 gem 'will_paginate'
@@ -25,6 +26,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'capistrano-unicorn', '~> 0.2.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
 gem 'ckeditor', '~> 4.1.2'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

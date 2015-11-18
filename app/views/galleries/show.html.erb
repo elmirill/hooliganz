@@ -15,7 +15,7 @@
 				<%= link_to pic.image.url(:original), class: "image-popup-fit", title: pic.caption do %>
 				<%= image_tag pic.image.url(:thumb), class: "gallery-thumb", alt: pic.alt, title: pic.caption %>
 				<% end %>
- 
+
 				<p class="photo-caption"><%= pic.caption %></p>
 
 				<% if user_signed_in? && is_admin? %>

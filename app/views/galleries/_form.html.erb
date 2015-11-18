@@ -41,11 +41,13 @@
 		</h3>
 		<br>
 
-		<div class="photos">
-			<%= f.simple_fields_for :pictures, f.object.pictures.order("created_at DESC") do |pic| %>
+		<div id="photos-sortable" class="photos">
+			<%= f.simple_fields_for :pictures, f.object.pictures.order("display_order ASC, created_at DESC") do |pic| %>
 				<%= render 'picture_fields', f: pic %>
 			<% end %>
 		</div>
+		
+		<input id="photos-order" name="galleryphoto" type="hidden">
 		
 		<div class="clearfix"></div>
 		<br>
