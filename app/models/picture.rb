@@ -2,7 +2,10 @@ class Picture < ActiveRecord::Base
   belongs_to :gallery
 	
 	def self.order(ids)
-		update_all(["display_order = STRPOS(?, ','||id||',')", ",#{ids.join(',')},"])
+		if ids.present?
+			update_all(["display_order = STRPOS(?, ','||id||',')", ",#{ids.join(',')},"])
+		end
+		true
 	end
 	
 	has_attached_file :image,
