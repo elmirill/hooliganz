@@ -3,7 +3,7 @@
  	<br>
 
   <div class="form-inputs">
-		<%= f.cktext_area :content, ckeditor: { language: 'ru', height: '500' } %>
+		<%= f.cktext_area :content, class: "ckeditor", ckeditor: { language: 'ru', height: '500' } %>
 		<div class="clearfix"></div><br><br>
 		
 		<%= f.simple_fields_for :training_pictures do |tp| %>

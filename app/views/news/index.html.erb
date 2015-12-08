@@ -1,6 +1,22 @@
 <% @news.each do |news| %>
-	<h1><%= news.title %></h1>
-	<p><%= news.body %></p>
+
+	<h2><%= news.title %></h2>
+	
+	<span class="news-date"><%= news.created_at.strftime("%d.%m.%Y") %></span>
+	
+	<div class="clearfix"></div>
+	
+	<% if news.thumbnail.present? %>
+		<%= image_tag news.thumbnail, class: "news-thumbnail" %>
+	<% else %>
+		<%= image_tag 'news-placeholder.jpg', class: "news-thumbnail" %>
+	<% end %>
+	
+	<div class="news-preview">
+		<p><%= news.body.html_safe %></p>
+	</div>
+	
+	<div class="clearfix"></div>
 	
 	<% if user_signed_in? && is_admin? %>
 		<%= link_to 'Редактировать', edit_news_path(news) %>

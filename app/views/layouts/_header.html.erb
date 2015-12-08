@@ -17,7 +17,7 @@
 			<li class="<%= 'nav-current-page' if current_page?('/news') %>"><%= link_to "Новости", "/news" %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/training') %>"><%= link_to "Обучение", '/training' %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/gallery') %>"><%= link_to "Галерея", "/gallery" %></li>
-			<li><%= link_to "Контакты", "#contacts", class: "scroll" %></li>
+			<li class="<%= 'nav-current-page' if current_page?('/contacts') %>"><%= link_to "Контакты", "/contacts" %></li>
 		</ul>
 		
 	</div>

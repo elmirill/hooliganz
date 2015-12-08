@@ -139,6 +139,10 @@ textarea {
 .hidden, .nickname {
 	display: none;
 }
+.no-border {
+	border: 0px;
+	text-decoration: none;
+}
 
 //Header
 
@@ -358,6 +362,28 @@ textarea {
 .admin-icon-return {
 	@extend .admin-icon-corner;
 	right: 50px;
+}
+.contacts-icon {
+	width: 60px;
+	margin-right: 11px;
+}
+.contacts-page-info {
+	font-size: 1.1em;
+}
+.news-date {
+	color: #777;
+	font-style: italic;
+	margin-top: -20px;
+}
+.news-thumbnail {
+	width: 150px;
+	height: 150px;
+	float: left;
+	padding: 10px 10px 0px 0px;
+}
+.news-preview {
+	width: calc(100% - 150px);
+	float: left;
 }
 
 
