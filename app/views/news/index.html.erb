@@ -26,6 +26,8 @@
 	<br>
 <% end %>
 
+<br>
+
 <% if user_signed_in? && is_admin? %>
-	<%= link_to 'Добавить новость', new_news_path %>
+	<%= link_to 'Добавить новость', new_news_path, class: 'btn btn-primary' %>
 <% end %>
