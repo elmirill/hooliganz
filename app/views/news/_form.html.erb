@@ -27,10 +27,9 @@
 			<%= f.input :thumb_title, label: 'Meta Title изображения' %>
 			<%= f.input :thumb_alt, label: 'Meta Alt изображения' %>
 			<br>
-
-			<%= f.label :body, 'Текст' %>
-			<%= f.cktext_area :body, class: "form ckeditor",
-																					ckeditor: { language: "ru", height: "250" } %>
+																					
+			<%= f.input :body, label: false, input_html: { class: "froala" } %>
+			
 		</div>
 		<br>
 		
@@ -40,3 +39,4 @@
 		<br>
 	<% end %>
 <% end %>
+

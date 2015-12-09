@@ -1,20 +1,22 @@
-<div class="col-md-8">
-	<%= @training.content.html_safe %>
-</div>
+<div class="row">
+	<div class="col-md-8">
+		<%= @training.content.html_safe %>
+	</div>
 
-<div class="col-md-4">
-	<% @training.training_pictures.each do |tp| %>
-		<%= link_to tp.image.url(:original), class: "image-popup-fit",
-																																title: tp.caption do %>
-			<%= image_tag tp.image.url(:thumb), class: "unit full-width-img",
-																											title: tp.caption, alt: tp.alt %>
+	<div class="col-md-4">
+		<% @training.training_pictures.each do |tp| %>
+			<%= link_to tp.image.url(:original), class: "image-popup-fit",
+																																	title: tp.caption do %>
+				<%= image_tag tp.image.url(:thumb), class: "unit full-width-img",
+																												title: tp.caption, alt: tp.alt %>
+			<% end %>
 		<% end %>
+	</div>
+	<div class="clearfix"></div>
+
+	<% if user_signed_in? && is_admin? %>
+		<div class="col-md-12">
+			<p><%= link_to 'Редактировать обучение', edit_training_path, class: 'btn btn-primary' %></p>
+		</div>
 	<% end %>
 </div>
-<div class="clearfix"></div>
-
-<% if user_signed_in? && is_admin? %>
-	<div class="col-md-12">
-		<p><%= link_to 'Редактировать обучение', edit_training_path, class: 'btn btn-primary' %></p>
-	</div>
-<% end %>

@@ -16,10 +16,7 @@
 			</div>
 		<% end %>
 
-		<div class="col-xs-12">
-			<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-80' %>
-		</div>
-
+		<%= f.text_area :description, placeholder: 'Описание', class: 'form textarea-80' %>
 		<div class="clearfix"></div>
 
 		<h3 class="admin-add-photo-heading">
@@ -41,7 +38,7 @@
 		</h3>
 		<br>
 
-		<div id="photos-sortable" class="photos">
+		<div id="photos-sortable" class="photos row">
 			<%= f.simple_fields_for :pictures, f.object.pictures.order("display_order ASC, created_at DESC") do |pic| %>
 				<%= render 'picture_fields', f: pic %>
 			<% end %>
@@ -50,9 +47,8 @@
 		<input id="photos-order" name="galleryphoto" type="hidden">
 		
 		<div class="clearfix"></div>
-		<br>
 
-		<div class="col-xs-12 mbottom20">
+		<div class="col-xs-12 mbottom20 row">
 			<%= link_to "Назад", "/gallery", class: "btn btn-default" %>
 			<%= f.button :submit, "Сохранить", class: "btn btn-primary" %>
 		</div>

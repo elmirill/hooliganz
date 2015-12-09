@@ -25,8 +25,8 @@ gem 'jquery-smooth-scroll-rails', '~> 0.0.5'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'capistrano-unicorn', '~> 0.2.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
-gem 'ckeditor', '~> 4.1.2'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'wysiwyg-rails', '~> 2.0', '>= 2.0.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
