@@ -385,6 +385,23 @@ textarea {
 	width: calc(100% - 150px);
 	float: left;
 }
+.news-admin-meta {
+	width: 278px;
+	float: left;
+}
+.news-admin-thumb {
+	float: left;
+	height: 92px;
+	width: 92px;
+	margin: 25px 15px 0px 15px;
+}
+.news-admin-add-thumb {
+	float: left;
+	width: calc(100% - 400px);
+	& input {
+		height: 93px;
+	}
+}
 
 
 //Footer

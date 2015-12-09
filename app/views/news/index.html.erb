@@ -7,9 +7,14 @@
 	<div class="clearfix"></div>
 	
 	<% if news.thumbnail.present? %>
-		<%= image_tag news.thumbnail, class: "news-thumbnail" %>
+	<%= link_to news.thumbnail.url(:original), class: "image-popup-fit",
+																														title: news.thumb_title do %>
+		<%= image_tag news.thumbnail.url(:thumb), class: "news-thumbnail",
+																					alt: news.thumb_alt, title: news.thumb_title %>
+	<% end %>
 	<% else %>
-		<%= image_tag 'news-placeholder.jpg', class: "news-thumbnail" %>
+		<%= image_tag 'news-placeholder.jpg', class: "news-thumbnail",
+																					alt: news.thumb_alt, title: news.thumb_title %>
 	<% end %>
 	
 	<div class="news-preview">

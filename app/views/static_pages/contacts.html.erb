@@ -4,7 +4,7 @@
 <div class="contacts-page-info">
 	<p><i class="glyphicon glyphicon-map-marker"></i> <%= @core_setting.address %></p>
 	<p><i class="glyphicon glyphicon-phone"></i> <%= @core_setting.main_phone %></p>
-	<p><i class="glyphicon glyphicon-globe"></i> <%= link_to @core_setting.vk_personal_link, "https://" + @core_setting.vk_personal_link %></p>
+	<p><i class="glyphicon glyphicon-globe"></i> <%= link_to @core_setting.vk_personal_link, "https://" + @core_setting.vk_personal_link, target: "_blank" %></p>
 	<p><i class="glyphicon glyphicon-envelope"></i> <%= @core_setting.main_email %></p>
 </div>
 <br>
