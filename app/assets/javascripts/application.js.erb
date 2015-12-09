@@ -65,3 +65,38 @@ $(document).bind('page:change', function() {
     CKEDITOR.replace($(this).attr('id'));
   });
 });
+
+
+// Scroll to Top
+$(document).ready(function() {
+	
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 300) {
+			$('.scroll-to-top').fadeIn();
+		} else {
+			$('.scroll-to-top').fadeOut();
+		}
+	});
+	
+	$('.scroll-to-top').click(function() {
+		$('html, body').animate({scrollTop: 0}, 800);
+	});
+	
+});
+
+
+// Gallery pic Caption engine
+$(document).ready(function() {
+	
+	$('.photo-caption').delay(1500).slideUp('slow', 'easeOutExpo');
+	
+	$('.gallery-item').hover(
+		function() {
+			$(this).children('.photo-caption').slideDown('fast', 'easeOutExpo')
+		},
+		function() {
+			$(this).children('.photo-caption').slideUp('slow', 'easeOutExpo');
+		}
+	);
+	
+});

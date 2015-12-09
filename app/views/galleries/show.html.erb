@@ -12,18 +12,25 @@
 		<div class="relative col-md-3 col-sm-4 col-xs-6">
 			<div class="gallery-item">
 
-				<%= link_to pic.image.url(:original), class: "image-popup-fit", title: pic.caption do %>
-				<%= image_tag pic.image.url(:thumb), class: "gallery-thumb", alt: pic.alt, title: pic.caption %>
-				<% end %>
-
+			<%= link_to pic.image.url(:original), class: "image-popup-fit",
+																								title: pic.caption do %>
+				<%= image_tag pic.image.url(:thumb), class: "gallery-thumb",
+																								alt: pic.alt, title: pic.caption %>
+			<% end %>
+			
+			<% if pic.caption.present? %>
 				<p class="photo-caption"><%= pic.caption %></p>
+			<% end %>
 
-				<% if user_signed_in? && is_admin? %>
-					<%= link_to pic, method: :delete, data: { confirm: "Уверены?" },
-																								class: "side-button corner-button" do %>
-					<i class="glyphicon glyphicon-remove"></i>
-					<% end %>
+<!--
+			<% if user_signed_in? && is_admin? %>
+				<%= link_to pic, method: :delete, data: { confirm: "Уверены?" },
+																							class: "side-button corner-button" do %>
+				<i class="glyphicon glyphicon-remove"></i>
 				<% end %>
+			<% end %>
+-->
+			
 			</div>
 		</div>
 	<% end %>
