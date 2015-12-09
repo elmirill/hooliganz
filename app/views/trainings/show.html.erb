@@ -16,7 +16,8 @@
 
 	<% if user_signed_in? && is_admin? %>
 		<div class="col-md-12">
-			<p><%= link_to 'Редактировать обучение', edit_training_path, class: 'btn btn-primary' %></p>
+			<p><%= link_to 'Редактировать обучение', edit_training_path,
+																													class: 'btn btn-primary' %></p>
 		</div>
 	<% end %>
 </div>
