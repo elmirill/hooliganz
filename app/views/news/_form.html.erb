@@ -4,9 +4,11 @@
 		
 		<style media="screen">
 			<% if f.object.thumbnail.present? %>
-				.news-admin-add-thumb { background-image: url(<%= f.object.thumbnail.url(:thumb) %>); }
+				.news-admin-add-thumb { 
+								background-image: url(<%= f.object.thumbnail.url(:thumb) %>); }
 			<% else %>
-				.news-admin-add-thumb { background-image: url("/assets/news-placeholder.jpg"); }
+				.news-admin-add-thumb { 
+								background-image: url(<%= root_url + "assets/news-placeholder.jpg" %>); }
 			<% end %>
 		</style>	
 
