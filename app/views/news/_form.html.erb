@@ -1,31 +1,31 @@
 <% if user_signed_in? && is_admin? %>
 		<%= simple_form_for(@news) do |f| %>
 		<%= f.error_notification %>
+		
+		<style media="screen">
+			<% if f.object.thumbnail.present? %>
+				.news-admin-add-thumb { background-image: url(<%= f.object.thumbnail.url(:thumb) %>); }
+			<% else %>
+				.news-admin-add-thumb { background-image: url("/assets/news-placeholder.jpg"); }
+			<% end %>
+		</style>	
 
 		<div class="form-inputs">
-			<%= f.label :title, 'Заголовок' %>
-			<%= f.text_field :title, class: "form" %>
-			<br>
-			
-			<div class="news-admin-add-thumb">
-				<%= f.label :thumblail, 'Изображение' %>
-				<%= f.input :thumbnail, label: false,
-									input_html: { class: "form-input form-control" } %>
+		
+			<div class="row">
+				<div class="col-xs-12">
+					<%= f.input :title, label: 'Заголовок', class: "form" %>
+				</div>
 			</div>
-			
-			<% if f.object.thumbnail.present? %>
-				<%= image_tag f.object.thumbnail.url(:thumb), class: "news-admin-thumb" %>
-			<% else %>
-				<%= image_tag 'news-placeholder.jpg', class: "news-admin-thumb" %>
-			<% end %>
-			
-			<div class="news-admin-meta">
-				<%= f.input :thumb_title, label: 'Meta Title изображения' %>
-				<%= f.input :thumb_alt, label: 'Meta Alt изображения' %>
-			</div>
-			<div class="clearfix"></div>
 
+			<%= f.input :thumbnail, label: 'Изображение',
+								input_html: { class: "form-input form-control news-admin-add-thumb" } %>
 			<br>
+			
+			<%= f.input :thumb_title, label: 'Meta Title изображения' %>
+			<%= f.input :thumb_alt, label: 'Meta Alt изображения' %>
+			<br>
+
 			<%= f.label :body, 'Текст' %>
 			<%= f.cktext_area :body, class: "form ckeditor",
 																					ckeditor: { language: "ru", height: "250" } %>
