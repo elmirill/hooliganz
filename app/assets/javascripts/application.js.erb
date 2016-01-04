@@ -73,11 +73,17 @@ $(document).ready(function() {
 	$('a.scroll').smoothScroll();
 });
 
+
+// Init sort photos
 $(document).ready(function() {
 	$('#photos-sortable').sortable({items: '.admin-add-photos', update: function() {
-		$('#photos-order').val($('#photos-sortable').sortable('serialize'));
+		get_sortable();
 	}});
 });
+
+function get_sortable() {
+	$('#photos-order').val($('#photos-sortable').sortable('serialize'));
+}
 
 
 // Init Froala Editor

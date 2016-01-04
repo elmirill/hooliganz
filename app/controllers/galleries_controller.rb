@@ -17,7 +17,7 @@ class GalleriesController < ApplicationController
 #	end
 	
   def show
-		@pictures = @gallery.pictures.order("display_order ASC, created_at DESC")
+		@pictures = @gallery.pictures.order("display_order ASC")
   end
 
   def edit

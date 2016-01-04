@@ -1,5 +1,6 @@
 class Picture < ActiveRecord::Base
   belongs_to :gallery
+	before_create :set_order
 	
 	def self.order(ids)
 		if ids.present?
@@ -26,4 +27,10 @@ class Picture < ActiveRecord::Base
 	validates_attachment :image, 
 						content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
 						size: { in: 0..2.megabytes }
+end
+
+private
+
+def set_order
+	self.display_order = 0
 end
