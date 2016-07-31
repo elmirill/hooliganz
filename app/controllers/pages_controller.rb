@@ -13,9 +13,9 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/new
-  def new
-    @page = Page.new
-  end
+#  def new
+#    @page = Page.new
+#  end
 
   # GET /pages/1/edit
   def edit
@@ -23,19 +23,19 @@ class PagesController < ApplicationController
 
   # POST /pages
   # POST /pages.json
-  def create
-    @page = Page.new(page_params)
-
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Страница создана.' }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#  def create
+#    @page = Page.new(page_params)
+#
+#    respond_to do |format|
+#      if @page.save
+#        format.html { redirect_to @page, notice: 'Страница создана.' }
+#        format.json { render :show, status: :created, location: @page }
+#      else
+#        format.html { render :new }
+#        format.json { render json: @page.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
@@ -53,13 +53,13 @@ class PagesController < ApplicationController
 
   # DELETE /pages/1
   # DELETE /pages/1.json
-  def destroy
-    @page.destroy
-    respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Страница удалена.' }
-      format.json { head :no_content }
-    end
-  end
+#  def destroy
+#    @page.destroy
+#    respond_to do |format|
+#      format.html { redirect_to pages_url, notice: 'Страница удалена.' }
+#      format.json { head :no_content }
+#    end
+#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

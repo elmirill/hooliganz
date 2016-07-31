@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	resources :galleries, only: [:show, :edit, :update, :new, :create]
 	resources :trainings
 	resources :core_settings, only: [:new, :create, :edit, :update]
-  resources :pages, except: [:index]
+  resources :pages, only: [:show, :edit, :update]
 	
   root 'static_pages#home'
 	
