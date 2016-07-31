@@ -1,38 +1,41 @@
 <% @news.each do |news| %>
 
-	<h2><%= news.title %></h2>
-	
-	<span class="news-date"><%= news.created_at.strftime("%d.%m.%Y") %></span>
-	
-	<div class="clearfix"></div>
-	
-	<% if news.thumbnail.present? %>
-	<%= link_to news.thumbnail.url(:original), class: "image-popup-fit",
-																														title: news.thumb_title do %>
-		<%= image_tag news.thumbnail.url(:thumb), class: "news-thumbnail",
-																					alt: news.thumb_alt, title: news.thumb_title %>
-	<% end %>
-	<% else %>
-		<%= image_tag 'news-placeholder.jpg', class: "news-thumbnail",
-																					alt: news.thumb_alt, title: news.thumb_title %>
-	<% end %>
-	
-	<div class="news-preview">
-		<p><%= news.body.html_safe %></p>
+  <div class="news-entity">
+    <h2><%= news.title %></h2>
+
+    <span class="news-date"><%= news.created_at.strftime("%d.%m.%Y") %></span>
+
+    <div class="clearfix"></div>
+
+    <% if news.thumbnail.present? %>
+    <%= link_to news.thumbnail.url(:original), class: "image-popup-fit",
+                                                              title: news.thumb_title do %>
+      <%= image_tag news.thumbnail.url(:thumb), class: "news-thumbnail",
+                                            alt: news.thumb_alt, title: news.thumb_title %>
+    <% end %>
+    <% else %>
+      <%= image_tag 'news-placeholder.jpg', class: "news-thumbnail",
+                                            alt: news.thumb_alt, title: news.thumb_title %>
+    <% end %>
+
+    <div class="news-preview">
+      <p><%= news.body.html_safe %></p>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <% if user_signed_in? && is_admin? %>
+      <%= link_to 'Редактировать', edit_news_path(news) %>
+      <%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Уверены?' } %>
+      <br>
+    <% end %>
+    <br>
 	</div>
 	
-	<div class="clearfix"></div>
-	
-	<% if user_signed_in? && is_admin? %>
-		<%= link_to 'Редактировать', edit_news_path(news) %>
-		<%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Уверены?' } %>
-		<br>
-	<% end %>
-	<br>
 <% end %>
 
 <br>
 
 <% if user_signed_in? && is_admin? %>
-	<%= link_to 'Добавить новость', new_news_path, class: 'btn btn-primary' %>
+  <p><%= link_to 'Добавить новость', new_news_path, class: 'btn btn-primary' %></p>
 <% end %>

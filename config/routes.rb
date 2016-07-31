@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	resources :galleries, only: [:show, :edit, :update, :new, :create]
 	resources :trainings
 	resources :core_settings, only: [:new, :create, :edit, :update]
+  resources :pages, except: [:index]
 	
   root 'static_pages#home'
 	
@@ -17,5 +18,6 @@ Rails.application.routes.draw do
 	match '/send_form', to: 'contact_form_mailer#send_form', via: 'post'
 	match '/edit_settings', to: 'core_settings#edit', via: 'get', id: 1
 	match '/contacts', to: 'static_pages#contacts', via: 'get'
+  match '/school', to: 'pages#show', via: 'get', id: 1, as: :school
 
 end

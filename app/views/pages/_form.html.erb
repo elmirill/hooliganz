@@ -1,0 +1,21 @@
+<%= simple_form_for(@page) do |f| %>
+  <%= f.error_notification %>
+ 	<br>
+
+  <div class="form-inputs row">
+    <div class="col-xs-12">
+			<%= f.input :title, label: false, placeholder: "Заголовок страницы" %>
+		</div>
+		
+		<br><br><br>
+		
+		<div class="col-xs-12">
+			<%= f.input :content, label: false, input_html: { class: "froala" } %>
+		</div>
+		<div class="clearfix"></div><br><br>
+  </div>
+
+  <div class="form-actions">
+		<%= f.button :submit, "Обновить", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<h1><%= @page.title %></h1>
+
+<br>
+
+<%= @page.content.html_safe %>
+
+<br>
+
+<% if user_signed_in? && is_admin? %>
+  <p><%= link_to 'Редактировать страницу', edit_page_path(@page),
+                                                        class: 'btn btn-primary' %></p>
+<% end %>

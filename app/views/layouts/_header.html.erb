@@ -15,6 +15,7 @@
 
 		<ul class="nav navbar-nav navbar-right collapse navbar-collapse">
 			<li class="<%= 'nav-current-page' if current_page?('/news') %>"><%= link_to "Новости", "/news" %></li>
+			<li class="<%= 'nav-current-page' if current_page?(school_path) %>" id="nav-school"><%= link_to "Онлайн школа", school_path %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/training') %>"><%= link_to "Обучение", '/training' %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/gallery') %>"><%= link_to "Галерея", "/gallery" %></li>
 			<li class="<%= 'nav-current-page' if current_page?('/contacts') %>"><%= link_to "Контакты", "/contacts" %></li>
