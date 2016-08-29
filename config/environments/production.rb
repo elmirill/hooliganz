@@ -85,12 +85,12 @@ Rails.application.configure do
 	address: ENV["mailer_address"],
 	port: ENV["mailer_port"],
 	domain: ENV["mailer_domain"],
-	authentication: 'plain',
+	authentication: :plain,
 	enable_starttls_auto: true,
 	user_name: ENV["mailer_user"],
 	password: ENV["mailer_pass"]
 	}
-	
+
 	# Paperclip config
 	config.paperclip_defaults = {
 		:storage => :s3,
