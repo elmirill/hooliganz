@@ -6,34 +6,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-  <script>
-  $(function() {
-    var modules = ['paragraphFormat', 'fontFamily', 'fontSize', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', '|', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'undo', 'redo', 'clearFormatting', 'fullscreen', 'html'];
-    $('.froala').froalaEditor({
-      language: 'ru',
-      toolbarButtons: modules,
-      toolbarButtonsMD: modules,
-      toolbarButtonsSM: modules,
-      toolbarButtonsXS: modules,
-      imageUploadToS3: {
-        bucket: "<%= @amazon_hash[:bucket] %>",
-        region: "<%= ENV['aws_region'] %>",
-        keyStart: "<%= @amazon_hash[:key_start] %>",
-        callback: function (url, key) {
-          console.log (url);
-          console.log (key);
-        },
-        params: {
-          acl: '<%= @amazon_hash[:acl] %>', // ACL according to Amazon Documentation.
-          AWSAccessKeyId: "<%= @amazon_hash[:access_key] %>", // Access Key from Amazon.
-          policy: '<%= @amazon_hash[:policy] %>', // Policy string computed in the backend.
-          signature: '<%= @amazon_hash[:signature] %>', // Signature computed in the backend.
-        }
-      }
-    })
-  });
-  </script>
-
   <%= csrf_meta_tags %>
   <meta name="google-site-verification" content="fTdImaPjvrkHrVUBTptZJU0jVNd8FIJN5o3uibnGMP0" />
 
@@ -62,5 +34,32 @@
 
 	<i class="scroll-to-top glyphicon glyphicon-arrow-up"></i>
 
+  <script>
+    $(function() {
+      var modules = ['paragraphFormat', 'fontFamily', 'fontSize', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', '|', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'undo', 'redo', 'clearFormatting', 'fullscreen', 'html'];
+      $('.froala').froalaEditor({
+        language: 'ru',
+        toolbarButtons: modules,
+        toolbarButtonsMD: modules,
+        toolbarButtonsSM: modules,
+        toolbarButtonsXS: modules,
+        imageUploadToS3: {
+          bucket: "<%= @amazon_hash[:bucket] %>",
+          region: "<%= ENV['aws_region'] %>",
+          keyStart: "<%= @amazon_hash[:key_start] %>",
+          callback: function (url, key) {
+            console.log (url);
+            console.log (key);
+          },
+          params: {
+            acl: '<%= @amazon_hash[:acl] %>', // ACL according to Amazon Documentation.
+            AWSAccessKeyId: "<%= @amazon_hash[:access_key] %>", // Access Key from Amazon.
+            policy: '<%= @amazon_hash[:policy] %>', // Policy string computed in the backend.
+            signature: '<%= @amazon_hash[:signature] %>', // Signature computed in the backend.
+          }
+        }
+      })
+    });
+  </script>
 </body>
 </html>
