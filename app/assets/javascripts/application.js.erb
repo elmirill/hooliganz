@@ -85,23 +85,9 @@ function get_sortable() {
 	$('#photos-order').val($('#photos-sortable').sortable('serialize'));
 }
 
-
-// Init Froala Editor
-$(function() {
-	var modules = ['paragraphFormat', 'fontFamily', 'fontSize', '|', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'color', 'emoticons', '|', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertHR', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'undo', 'redo', 'clearFormatting', 'fullscreen', 'html'];
-	$('.froala').froalaEditor({
-		language: 'ru',
-		toolbarButtons: modules,
-		toolbarButtonsMD: modules,
-		toolbarButtonsSM: modules,
-		toolbarButtonsXS: modules
-	})
-});
-
-
 // Scroll to Top
 $(document).ready(function() {
-	
+
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 300) {
 			$('.scroll-to-top').fadeIn();
@@ -109,19 +95,19 @@ $(document).ready(function() {
 			$('.scroll-to-top').fadeOut();
 		}
 	});
-	
+
 	$('.scroll-to-top').click(function() {
 		$('html, body').animate({scrollTop: 0}, 800);
 	});
-	
+
 });
 
 
 // Gallery pic Caption engine
 $(document).ready(function() {
-	
+
 	$('.photo-caption').delay(1500).slideUp('slow', 'easeOutExpo');
-	
+
 	$('.gallery-item').hover(
 		function() {
 			$(this).children('.photo-caption').slideDown('fast', 'easeOutExpo')
@@ -130,7 +116,7 @@ $(document).ready(function() {
 			$(this).children('.photo-caption').slideUp('slow', 'easeOutExpo');
 		}
 	);
-	
+
 });
 
 

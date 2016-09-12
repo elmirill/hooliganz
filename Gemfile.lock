@@ -358,3 +358,6 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate
   wysiwyg-rails (~> 2.0, >= 2.0.3)
+
+BUNDLED WITH
+   1.12.5
